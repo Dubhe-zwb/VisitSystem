@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Visitor System</string>
+    <string name="id_password">Account password login</string>
+    <string name="code">Qr code login</string>
+    <string name="hint_id">Please enter the account number.</string>
+    <string name="hint_pwd">Please enter the account password.</string>
+    <string name="save_id">Memorize account</string>
+    <string name="confirm_button">Login</string>
+    <string name="server_exception">The server is abnormal, please contact the administrator</string>
+    <string name="login_successful">Login Successfully</string>
+    <string name="login_faliure">Login Faliure</string>
+    <string name="welcome">Welcome to use Visit System</string>
+    <string name="show_left">All pending matters</string>
+    <string name="show_right">Today pending matters</string>
+    <string name="all">all</string>
+    <string name="bottom_left">Waiting process</string>
+    <string name="bottom_right">Finished items</string>
+    <string name="initiative_visit">Initiative visit</string>
+    <string name="invite_visit">Invite visit</string>
+    <string name="explore">Please enter name to search</string>
+    <string name="visitor_name">Visitor Name</string>
+    <string name="company_name">Company Name</string>
+    <string name="visit_reason">Visit Reason</string>
+    <string name="others">others</string>
+    <string name="to_ways">Ways</string>
+    <string name="visit_time">Visit Time</string>
+    <string name="leave_time">Leave Time</string>
+    <string name="home_name">Home Name</string>
+    <string name="scan_hint">Use wechat to scan</string>
+    <string name="visitor_register">Visitor Register</string>
+</resources>

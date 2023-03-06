@@ -1,0 +1,17 @@
+<resources>
+
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="WritingBoardView">
+        <!-- name: 属性名, format: XML属性类型 -->
+        <attr name="paintColor" format="color"></attr>
+        <attr name="paintSize" format="dimension"></attr>
+        <attr name="eraserSize" format="dimension"></attr>
+        <attr name="menuBgColor" format="color"></attr>
+        <attr name="BoardColor" format="color"></attr>
+    </declare-styleable>
+
+</resources>

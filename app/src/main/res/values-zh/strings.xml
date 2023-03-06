@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">访客系统</string>
+    <string name="id_password">账号密码登录</string>
+    <string name="code">扫码登录</string>
+    <string name="hint_id">请输入用户名</string>
+    <string name="hint_pwd">请输入密码</string>
+    <string name="save_id">记住账号</string>
+    <string name="confirm_button">登录</string>
+    <string name="server_exception">服务器异常，请联系管理员</string>
+    <string name="login_successful">登录成功</string>
+    <string name="login_faliure">登录失败,请检查账号或密码！</string>
+    <string name="welcome">欢迎使用访客系统</string>
+    <string name="show_left">总待办</string>
+    <string name="show_right">今日待办</string>
+    <string name="all">全部</string>
+    <string name="bottom_left">待接待</string>
+    <string name="bottom_right">已完成</string>
+    <string name="initiative_visit">主动来访</string>
+    <string name="invite_visit">受邀来访</string>
+    <string name="explore">请输入姓名搜索</string>
+    <string name="visitor_name">访客姓名</string>
+    <string name="company_name">公司名称</string>
+    <string name="visit_reason">来访事由</string>
+    <string name="others">同行人员</string>
+    <string name="to_ways">来访方式</string>
+    <string name="visit_time">来访时间</string>
+    <string name="leave_time">离开时间</string>
+    <string name="home_name">拜访人</string>
+    <string name="scan_hint">使用微信扫一扫</string>
+    <string name="visitor_register">访客登记</string>
+</resources>
