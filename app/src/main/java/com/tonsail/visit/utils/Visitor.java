@@ -41,11 +41,11 @@ public  class Visitor implements Serializable {
         private Integer receiverId;//接待人id
         private Object receiverTime;//接待时间
         private Object tenantId;//租户id
-        private Object accompanyingPerson;//同行人员
-        private Object leaveTime;//离开时间
+        private String accompanyingPerson;//同行人员
+        private String leaveTime;//离开时间
         private Object inviteTime;//邀请时间
         private Integer status;//访客状态 -2 已驳回 -1 提交申请草稿 0 未到访  1 确认到访  2 已离开
-        private Object confirmTime;//确认到访时间
+        private String confirmTime;//确认到访时间
         private Object createtime;//创建时间
         private String updatetime;//修改时间
 
@@ -153,19 +153,19 @@ public  class Visitor implements Serializable {
             this.tenantId = tenantId;
         }
 
-        public Object getAccompanyingPerson() {
+        public String getAccompanyingPerson() {
             return accompanyingPerson;
         }
 
-        public void setAccompanyingPerson(Object accompanyingPerson) {
+        public void setAccompanyingPerson(String accompanyingPerson) {
             this.accompanyingPerson = accompanyingPerson;
         }
 
-        public Object getLeaveTime() {
+        public String getLeaveTime() {
             return leaveTime;
         }
 
-        public void setLeaveTime(Object leaveTime) {
+        public void setLeaveTime(String leaveTime) {
             this.leaveTime = leaveTime;
         }
 
@@ -185,11 +185,11 @@ public  class Visitor implements Serializable {
             this.status = status;
         }
 
-        public Object getConfirmTime() {
+        public String getConfirmTime() {
             return confirmTime;
         }
 
-        public void setConfirmTime(Object confirmTime) {
+        public void setConfirmTime(String confirmTime) {
             this.confirmTime = confirmTime;
         }
 

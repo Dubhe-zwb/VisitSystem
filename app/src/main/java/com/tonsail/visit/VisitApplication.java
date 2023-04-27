@@ -3,9 +3,13 @@ package com.tonsail.visit;
 import android.app.Application;
 import android.util.Log;
 
-import com.tencent.bugly.crashreport.CrashReport;
+import androidx.multidex.MultiDexApplication;
 
-public class VisitApplication extends Application {
+import com.tencent.bugly.crashreport.CrashReport;
+import com.tencent.mmkv.MMKV;
+
+
+public class VisitApplication extends MultiDexApplication {
 
     private static Application mApp;
     private static final String TAG = "VisitApplication";
@@ -13,10 +17,14 @@ public class VisitApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        CrashReport.initCrashReport(getApplicationContext(), "18afd93137", BuildConfig.DEBUG);
+        CrashReport.initCrashReport(getApplicationContext(), "18afd93137",false);
 
+        String versionName = BuildConfig.VERSION_NAME;
+        Log.e(TAG,"VisitApplication_Version Name--->"+versionName);
+
+        String rootDir = MMKV.initialize(this);
         //启动服务
-        Log.e(TAG, "onCreate: ");
+        Log.e(TAG, "onCreate: "+rootDir);
         mApp = this;
     }
 

@@ -1,6 +1,5 @@
 package com.tonsail.visit.adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,36 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tonsail.visit.R;
+import com.tonsail.visit.utils.TimeJudge;
 import com.tonsail.visit.utils.Visitor;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class TodayInfo extends RecyclerView.Adapter<TodayInfo.Holder> {
     private static final String TAG = "zwb_TodayInfo";
     public List<Visitor.ContentBean> list = new ArrayList<>();
-
-    /**
-     * 去除返回数据的秒
-     *
-     * @param time
-     * @return
-     */
-    public String splitTime(String time) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        try {
-            Date parse = simpleDateFormat.parse(time);
-            String format = simpleDateFormat.format(parse);
-            return format;
-        } catch (ParseException e) {
-            Log.e(TAG, "splitTime: 解析异常");
-            return time;
-        }
-
-    }
 
     public TodayInfo() {
 
@@ -70,7 +48,7 @@ public class TodayInfo extends RecyclerView.Adapter<TodayInfo.Holder> {
             holder.view.setBackgroundResource(R.color.white);
             holder.visitType.setBackgroundResource(R.drawable.shape_invite_bg);
         }
-        holder.visitInfo.setText(contentBean.getName() + "已确认" + splitTime(contentBean.getTime()) + "到访，请做好接待。");
+        holder.visitInfo.setText(contentBean.getName() + "已确认" + TimeJudge.splitTime(contentBean.getTime()) + "到访，请做好接待。");
     }
 
     @Override

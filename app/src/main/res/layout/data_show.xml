@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_1250"
+    android:layout_height="@dimen/dp_619"
+    android:background="#F7F7F7">
+
+    <RelativeLayout
+        android:id="@+id/chart_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F7F7F7">
+
+        <RelativeLayout
+            android:id="@+id/one"
+            android:layout_width="@dimen/dp_302"
+            android:layout_height="@dimen/dp_90"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:id="@+id/a_month_visitors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_18"
+                android:text="近一月访客数量"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/a_month_visitors_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/a_month_visitors"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_24" />
+
+            <TextView
+                android:id="@+id/person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/a_month_visitors_num"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_18"
+                android:layout_toEndOf="@id/a_month_visitors_num"
+                android:text="人"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_12" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/two"
+            android:layout_width="@dimen/dp_302"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_toEndOf="@+id/one"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:id="@+id/a_month_visitors_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_18"
+                android:text="今日访客数量"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/a_month_visitors_num_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/a_month_visitors_today"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_24" />
+
+            <TextView
+                android:id="@+id/person_today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_18"
+                android:layout_toEndOf="@id/a_month_visitors_num_today"
+                android:text="人"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_12" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/three"
+            android:layout_width="@dimen/dp_302"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_toEndOf="@id/two"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:id="@+id/a_month_visitors_arrive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_18"
+                android:text="已到达"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/a_month_visitors_num_arrive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/a_month_visitors_arrive"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_24" />
+
+            <TextView
+                android:id="@+id/person_arrive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_18"
+                android:layout_toEndOf="@id/a_month_visitors_num_arrive"
+                android:text="人"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_12" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/four"
+            android:layout_width="@dimen/dp_302"
+            android:layout_height="@dimen/dp_90"
+            android:layout_marginStart="@dimen/dp_14"
+            android:layout_toEndOf="@id/three"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:id="@+id/a_month_visitors_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_18"
+                android:text="已离开"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <TextView
+                android:id="@+id/a_month_visitors_num_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/a_month_visitors_leave"
+                android:layout_marginStart="@dimen/dp_53"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_24" />
+
+            <TextView
+                android:id="@+id/person_leave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_18"
+                android:layout_toEndOf="@id/a_month_visitors_num_leave"
+                android:text="人"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_12" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/five"
+            android:layout_width="@dimen/dp_618"
+            android:layout_height="@dimen/dp_210"
+            android:layout_below="@+id/one"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/shape_chart_bg">
+
+            <com.tonsail.visit.AAChartCoreLib.AAChartCreator.AAChartView
+                android:id="@+id/aa_chart_view_visit_reason"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/bar_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_40"
+                android:layout_marginBottom="@dimen/dp_4" />
+
+            <FrameLayout
+                android:id="@+id/today_visit_reason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_26"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="今日访客来访事由"
+                    android:textColor="#7D7D7D"
+                    android:textSize="@dimen/sp_12" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/six"
+            android:layout_width="@dimen/dp_618"
+            android:layout_height="@dimen/dp_210"
+            android:layout_below="@+id/one"
+            android:layout_marginStart="@dimen/dp_13"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_toEndOf="@+id/five"
+            android:background="@drawable/shape_chart_bg">
+
+            <com.tonsail.visit.AAChartCoreLib.AAChartCreator.AAChartView
+                android:id="@+id/aa_chart_view_visit_way"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_300" />
+
+
+            <FrameLayout
+                android:id="@+id/today_visit_way"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_26"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="今日访客来访形式"
+                    android:textColor="#7D7D7D "
+                    android:textSize="@dimen/sp_12" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/seven"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_210"
+            android:layout_below="@id/five"
+            android:layout_marginTop="@dimen/dp_15"
+            android:background="@drawable/shape_chart_bg">
+
+            <com.tonsail.visit.AAChartCoreLib.AAChartCreator.AAChartView
+                android:id="@+id/aa_chart_view_visit_change"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_40"
+                android:layout_marginBottom="@dimen/dp_4"
+                android:visibility="visible" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/line_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_40"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:id="@+id/visit_num_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_26"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="访客人数趋势图"
+                    android:textColor="#7D7D7D "
+                    android:textSize="@dimen/sp_12" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/spinner_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:background="@drawable/shape_spinner_bg">
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/option"
+                    android:paddingHorizontal="@dimen/dp_10"
+                    android:popupElevation="@dimen/dp_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/night"
+            android:layout_width="@dimen/dp_42"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/dp_46"
+            android:layout_marginBottom="@dimen/dp_24"
+            android:background="@android:color/transparent">
+
+            <TextView
+                android:id="@+id/many"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="更多"
+                android:textColor="#3590ED"
+                android:textSize="@dimen/sp_12" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_3"
+                android:src="@drawable/many" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/chart_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F7F7F7"
+        android:paddingBottom="@dimen/dp_10"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:id="@+id/many_one"
+            android:layout_width="@dimen/dp_610"
+            android:layout_height="@dimen/dp_266"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_22"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="访客到访频次(Top5)"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <com.tonsail.visit.AAChartCoreLib.AAChartCreator.AAChartView
+                android:id="@+id/aa_chart_view_many_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_38" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/HorizontalBarChart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_38"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:id="@+id/no_data_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="暂无数据"
+                    android:textColor="#CACACA"
+                    android:textSize="@dimen/sp_12"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/spinner_set_many_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:background="@drawable/shape_spinner_bg">
+
+                <Spinner
+                    android:id="@+id/spinner_many_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/option"
+                    android:paddingHorizontal="@dimen/dp_10"
+                    android:popupElevation="@dimen/dp_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15" />
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/many_two"
+            android:layout_width="@dimen/dp_610"
+            android:layout_height="@dimen/dp_266"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_toEndOf="@+id/many_one"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_22"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="邀约高峰时间"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <com.tonsail.visit.AAChartCoreLib.AAChartCreator.AAChartView
+                android:id="@+id/aa_chart_view_many_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_38" />
+
+            <com.github.mikephil.charting.charts.HorizontalBarChart
+                android:id="@+id/HorizontalBarChart_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_38"
+                android:visibility="gone" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:id="@+id/no_data_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="暂无数据"
+                    android:textColor="#CACACA"
+                    android:textSize="@dimen/sp_12"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/spinner_set_many_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:background="@drawable/shape_spinner_bg">
+
+                <Spinner
+                    android:id="@+id/spinner_many_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/option"
+                    android:paddingHorizontal="@dimen/dp_10"
+                    android:popupElevation="@dimen/dp_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/many_three"
+            android:layout_width="@dimen/dp_610"
+            android:layout_height="@dimen/dp_266"
+            android:layout_below="@+id/many_one"
+            android:layout_marginTop="@dimen/dp_20"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_22"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="访客停留时长分布"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <com.tonsail.visit.AAChartCoreLib.AAChartCreator.AAChartView
+                android:id="@+id/aa_chart_view_many_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_38"
+                android:visibility="gone" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart_many_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/dp_30"
+                android:layout_marginVertical="@dimen/dp_24" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:id="@+id/no_data_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="暂无数据"
+                    android:textColor="#CACACA"
+                    android:textSize="@dimen/sp_12"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/spinner_set_many_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:background="@drawable/shape_spinner_bg">
+
+                <Spinner
+                    android:id="@+id/spinner_many_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/option"
+                    android:paddingHorizontal="@dimen/dp_10"
+                    android:popupElevation="@dimen/dp_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15" />
+            </FrameLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/many_four"
+            android:layout_width="@dimen/dp_610"
+            android:layout_height="@dimen/dp_266"
+            android:layout_below="@id/many_one"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_toEndOf="@+id/many_three"
+            android:background="@drawable/shape_chart_bg">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_22"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="访客到访率"
+                android:textColor="#7D7D7D"
+                android:textSize="@dimen/sp_12" />
+
+            <com.tonsail.visit.AAChartCoreLib.AAChartCreator.AAChartView
+                android:id="@+id/aa_chart_view_many_four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_38"
+                android:visibility="gone" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pie_chart_many_four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginTop="@dimen/dp_30"
+                android:layout_marginBottom="@dimen/dp_10" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <TextView
+                    android:id="@+id/no_data_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="暂无数据"
+                    android:textColor="#CACACA"
+                    android:textSize="@dimen/sp_12"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/spinner_set_many_four"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:background="@drawable/shape_spinner_bg">
+
+                <Spinner
+                    android:id="@+id/spinner_many_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/option"
+                    android:paddingHorizontal="@dimen/dp_10"
+                    android:popupElevation="@dimen/dp_2"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_15" />
+            </FrameLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/eight"
+        android:layout_width="@dimen/dp_42"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="@dimen/dp_112"
+        android:layout_marginBottom="@dimen/dp_24"
+        android:background="@android:color/transparent">
+
+        <TextView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="返回"
+            android:textColor="#3590ED"
+            android:textSize="@dimen/sp_12" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_3"
+            android:src="@drawable/back" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -6,7 +6,7 @@
 
     <ImageView
         android:id="@+id/large_after"
-        android:layout_width="320dp"
-        android:layout_height="320dp" />
+        android:layout_width="@dimen/dp_320"
+        android:layout_height="@dimen/dp_320" />
 
 </LinearLayout>

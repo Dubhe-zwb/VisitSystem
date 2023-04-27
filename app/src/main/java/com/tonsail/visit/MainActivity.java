@@ -7,6 +7,8 @@ import android.database.Cursor;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
@@ -33,6 +35,7 @@ import com.tonsail.visit.utils.HttpUtil;
 import com.tonsail.visit.utils.IdInfo;
 import com.tonsail.visit.utils.NetTest;
 import com.tonsail.visit.utils.SPManager;
+import com.tonsail.visit.utils.SpUtils;
 import com.tonsail.visit.utils.Visitor;
 import com.tonsail.visit.utils.encode.RSAUtils;
 
@@ -76,12 +79,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private ImageView saveBtn;
     private boolean selectFlag;
     private long timeTest;//登陆时间测试
+    private final Handler handler = new Handler(Looper.getMainLooper());
+    private int machineFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
 //        android.view.WindowManager.LayoutParams layoutParams = getWindow().getAttributes();
 //        layoutParams.gravity = Gravity.CENTER;
@@ -119,6 +123,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         id_pwd.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.press_text));
         code.setTextColor(ContextCompat.getColor(MainActivity.this, R.color.orignal_text));
 
+        pwdChanged();
+    }
+
+    public void pwdChanged() {
         pwd.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -132,12 +140,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void afterTextChanged(Editable s) {
-
                 if (!TextUtils.isEmpty(id.getText()) && !TextUtils.isEmpty(pwd.getText())) {
                     login.setBackgroundResource(R.drawable.shape_login_bg_enable);
                 } else {
                     login.setBackgroundResource(R.drawable.shape_login_bg);
                 }
+
                 //特殊切换环境入口
                 String pwd = s.toString().trim();
                 if (TextUtils.equals(pwd, "test@tonsail") && TextUtils.isEmpty(id.getText())) {
@@ -150,16 +158,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-
     }
 
     public void initData() {
-
+        judgeMachine();
 
     }
 
+    public void judgeMachine() {
+        float density = getResources().getDisplayMetrics().density;
+        Log.e(TAG, "zwbonCreate: " + density);
+        if (density == 1.5)
+            machineFlag = 1;//848
+        else if (density == 2.0)
+            machineFlag = 2;//2853
+        else if (density == 3.0)
+            machineFlag = 3;//9666
+        Log.e(TAG, "judgeMachine: "+machineFlag);
+        SpUtils.encode("machineFlag",machineFlag);
+    }
+
     public void login() {
-        login.setEnabled(false);
         Map<String, String> requestParams = new HashMap<>();
         requestParams.put("username", id.getText().toString());
         final String password = pwd.getText().toString();
@@ -194,10 +213,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                     if (response.body() == null) {
                         Log.e(TAG, "onResponse: login_response.body()==null");
+                        loginBtnEnable();
                         return;
                     }
                     String result = response.body().string();
-                    Log.e(TAG + " onResponse---result", result);
+//                    Log.e(TAG + " onResponse---result", result);
                     Map<Object, Object> resultMap = null;
                     Gson gson = new Gson();
                     try {
@@ -222,7 +242,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 exceptionHint("resultMap.get(\"user\")_json_error");
                                 return;
                             }
-                            Log.e(TAG, "onResponse: userMap" + userMap);
+//                            Log.e(TAG, "onResponse: userMap" + userMap);
                             User currentUser = null;
                             if (userMap.containsKey("user")) {   //获取登录User的基本信息
                                 String userStr = gson.toJson(userMap.get("user"));
@@ -246,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             currentUser.setAccount(id.getText().toString());
                             currentUser.setPassword(finalEncryptPassword);
 //                            UserDao.getInstance().add(currentUser);暂不存储用户
-                            Log.e(TAG, "onResponse: 789" + userMap.get("user"));
+//                            Log.e(TAG, "onResponse: 789" + userMap.get("user"));
 
                             Map<Object, Object> o = null;//获取登录账号所属公司
                             try {
@@ -268,15 +288,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     return;
                                 }
                                 name = idInfo.getName();
-                                Log.e(TAG, "onResponse123: " + name);
+//                                Log.e(TAG, "onResponse123: " + name);
 
                             }
 
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Log.e("test11", "run: 11---->" + (System.currentTimeMillis() - timeTest));
-                                    Toast.makeText(MainActivity.this, getString(R.string.login_successful), Toast.LENGTH_SHORT)
+//                                    Log.e("test11", "run: 11---->" + (System.currentTimeMillis() - timeTest));
+                                    Toast.makeText(MainActivity.this, getString(R.string.login_successful), Toast.LENGTH_LONG)
                                             .show();
                                     overridePendingTransition(R.anim.anim_no, R.anim.anim_no);
                                     okhttpRequest();
@@ -289,6 +309,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+                                    login.setBackgroundResource(R.drawable.shape_login_bg_enable);
                                     login.setEnabled(true);
                                     Toast.makeText(MainActivity.this, getString(R.string.login_faliure), Toast.LENGTH_SHORT)
                                             .show();
@@ -306,7 +327,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                login.setBackgroundResource(R.drawable.shape_login_bg_enable);
+                login.setEnabled(true);
                 Toast.makeText(MainActivity.this, info + "_解析异常，请联系管理员", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void loginBtnEnable() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                login.setBackgroundResource(R.drawable.shape_login_bg_enable);
+                login.setEnabled(true);
             }
         });
     }
@@ -315,6 +348,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                login.setBackgroundResource(R.drawable.shape_login_bg_enable);
                 login.setEnabled(true);
                 Toast.makeText(MainActivity.this, getString(R.string.server_exception), Toast.LENGTH_SHORT)
                         .show();
@@ -327,6 +361,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 网络检测工具类必须在子线程执行
      */
     public void testNetwork() {
+        login.setBackgroundResource(R.drawable.shape_login_bg);
+        login.setEnabled(false);
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -335,13 +371,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Log.e(TAG, "run: " + "网络畅通");
+//                            Log.e(TAG, "run: " + "网络畅通");
                             login();
                         }
                     });
                 } else {
-                    Log.e(TAG, "run: " + "网络存在问题");
-                    Toast.makeText(MainActivity.this, "网络似乎存在问题...", Toast.LENGTH_SHORT).show();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            login.setBackgroundResource(R.drawable.shape_login_bg_enable);
+                            login.setEnabled(true);
+                            Log.e(TAG, "run: " + "网络存在问题");
+                            Toast.makeText(MainActivity.this, "网络似乎存在问题...", Toast.LENGTH_SHORT).show();
+                        }
+                    }, 1000);
                 }
             }
         }).start();
@@ -352,10 +395,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Log.e(TAG, "okhttpRequest: token---->" + token);
         if (TextUtils.isEmpty(token)) {
             Log.e(TAG, "okhttpRequest: token为空");
+            loginBtnEnable();
             return;
         }
         OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder().url("http://192.168.3.181:8000/api/visitor/query?size=100&sort=time,desc").addHeader("Authorization", token).get().build();
+        Request request = new Request.Builder().url("http://192.168.3.181:8000/api/visitor/query?size=100000&sort=createtime,desc").addHeader("Authorization", token).get().build();
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
             @Override
@@ -372,7 +416,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     return;
                 }
                 String data = response.body().string();
-                Log.e(TAG, "onResponse: data" + data);
+//                Log.e(TAG, "onResponse: data" + data);
                 //响应码可能是404也可能是200都会走这个方法
                 if (response.isSuccessful()) {
                     long time = System.currentTimeMillis();
@@ -385,15 +429,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         exceptionHint("visitor");
                         return;
                     }
-                    Log.e(TAG, "onResponse: visitor.getTotalElements" + visitor.getTotalElements());
-                    Log.e(TAG, "onResponse: gson.toJson" + gson.toJson(visitor));
-                    Log.e(TAG, "onResponse: json解析时间--->" + (System.currentTimeMillis() - time) / 1000.0 + "visitor-->" + visitor.getContent().size() + "**" + visitor.getTotalElements());
+//                    Log.e(TAG, "onResponse: visitor.getTotalElements" + visitor.getTotalElements());
+//                    Log.e(TAG, "onResponse: gson.toJson" + gson.toJson(visitor));
+//                    Log.e(TAG, "onResponse: json解析时间--->" + (System.currentTimeMillis() - time) / 1000.0 + "visitor-->" + visitor.getContent().size() + "**" + visitor.getTotalElements());
                     Intent intent = new Intent(MainActivity.this, ShowActivity.class);
                     intent.putExtra("visitor", visitor);
                     intent.putExtra("name", name);
                     intent.putExtra("token", token);
                     startActivity(intent);
-                    Log.e("test11", "run: 22---->" + (System.currentTimeMillis() - timeTest));
+//                    Log.e("test11", "run: 22---->" + (System.currentTimeMillis() - timeTest));
                     finish();
                 }
             }
@@ -465,6 +509,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v.getId() == R.id.login) {
             if (TextUtils.isEmpty(id.getText()) || TextUtils.isEmpty(pwd.getText())) return;
             timeTest = System.currentTimeMillis();
+
             testNetwork();
         }
         if (v.getId() == R.id.exit) {
@@ -504,6 +549,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Log.e(TAG, "tryAgain: " + tryFlag);
             okhttpRequest();
             tryFlag++;
+        } else {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    loginBtnEnable();
+                    Toast.makeText(MainActivity.this, "访客数据获取失败，请退出后重试！", Toast.LENGTH_LONG).show();
+                }
+            });
         }
     }
 }

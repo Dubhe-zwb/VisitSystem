@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root"
     android:layout_width="wrap_content"
-    android:layout_height="60dp"
+    android:layout_height="@dimen/dp_60"
     android:background="#F6FCFF">
 
     <RelativeLayout
@@ -12,7 +12,7 @@
 
         <TextView
             android:id="@+id/visitor_name"
-            android:layout_width="119dp"
+            android:layout_width="@dimen/dp_119"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/company_name"
-            android:layout_width="248dp"
+            android:layout_width="@dimen/dp_248"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/visitor_name"
@@ -30,7 +30,7 @@
 
         <TextView
             android:id="@+id/visit_reason"
-            android:layout_width="120dp"
+            android:layout_width="@dimen/dp_120"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/company_name"
@@ -39,7 +39,7 @@
 
         <TextView
             android:id="@+id/others"
-            android:layout_width="118dp"
+            android:layout_width="@dimen/dp_118"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/visit_reason"
@@ -48,7 +48,7 @@
 
         <TextView
             android:id="@+id/to_ways"
-            android:layout_width="128dp"
+            android:layout_width="@dimen/dp_128"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/others"
@@ -57,7 +57,7 @@
 
         <TextView
             android:id="@+id/visit_time"
-            android:layout_width="160dp"
+            android:layout_width="@dimen/dp_160"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/to_ways"
@@ -66,7 +66,7 @@
 
         <TextView
             android:id="@+id/leave_time"
-            android:layout_width="160dp"
+            android:layout_width="@dimen/dp_160"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/visit_time"
@@ -75,9 +75,10 @@
 
         <TextView
             android:id="@+id/home_name"
-            android:layout_width="120dp"
+            android:layout_width="@dimen/dp_120"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_0"
             android:layout_toRightOf="@id/leave_time"
             android:gravity="center"
             android:textSize="12sp" />

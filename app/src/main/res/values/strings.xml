@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Visitor System</string>
-    <string name="id_password">Account password login</string>
+    <string name="id_password">Account login</string>
     <string name="code">Qr code login</string>
     <string name="hint_id">Please enter the account number.</string>
     <string name="hint_pwd">Please enter the account password.</string>
@@ -28,4 +28,9 @@
     <string name="home_name">Home Name</string>
     <string name="scan_hint">Use wechat to scan</string>
     <string name="visitor_register">Visitor Register</string>
+    <string name="chart_open">Chart Open</string>
+    <string name="chart_show"><u>Data Show</u></string>
+    <string name="recent_month">Recent Month</string>
+    <string name="recent_week">Recent Week</string>
+    <string name="today">Today</string>
 </resources>

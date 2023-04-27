@@ -6,8 +6,8 @@
     <string name="hint_pwd">请输入密码</string>
     <string name="save_id">记住账号</string>
     <string name="confirm_button">登录</string>
-    <string name="server_exception">服务器异常，请联系管理员</string>
-    <string name="login_successful">登录成功</string>
+    <string name="server_exception">服务器异常，请重试或联系管理员！</string>
+    <string name="login_successful">登录成功,正在获取访客数据！</string>
     <string name="login_faliure">登录失败,请检查账号或密码！</string>
     <string name="welcome">欢迎使用访客系统</string>
     <string name="show_left">总待办</string>
@@ -28,4 +28,9 @@
     <string name="home_name">拜访人</string>
     <string name="scan_hint">使用微信扫一扫</string>
     <string name="visitor_register">访客登记</string>
+    <string name="chart_open">数据分析统计</string>
+    <string name="chart_show"><u>数据统计看板</u></string>
+    <string name="recent_month">近一月</string>
+    <string name="recent_week">近一周</string>
+    <string name="today">近一天</string>
 </resources>

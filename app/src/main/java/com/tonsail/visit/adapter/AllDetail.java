@@ -1,7 +1,6 @@
 package com.tonsail.visit.adapter;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,37 +10,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.tonsail.visit.R;
+import com.tonsail.visit.utils.TimeJudge;
 import com.tonsail.visit.utils.Visitor;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class AllDetail extends RecyclerView.Adapter<AllDetail.Holder> {
     private static final String TAG = "zwb_AllDetail";
+
     public List<Visitor.ContentBean> list = new ArrayList<>();
     public List<Visitor.ContentBean> originalList = new ArrayList<>();
     private String selectName;
 
-    /**
-     * 去除返回数据的秒
-     *
-     * @param time
-     * @return
-     */
-    public String splitTime(String time) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        try {
-            Date parse = simpleDateFormat.parse(time);
-            String format = simpleDateFormat.format(parse);
-            return format;
-        } catch (ParseException e) {
-            Log.e(TAG, "splitTime: 解析异常");
-            return time;
-        }
-
+    public List<Visitor.ContentBean> getList() {
+        return list;
     }
 
     public AllDetail() {
@@ -90,14 +73,14 @@ public class AllDetail extends RecyclerView.Adapter<AllDetail.Holder> {
         holder.visitorName.setText(contentBean.getName());
         holder.companyName.setText(contentBean.getCompany());
         holder.visitReason.setText(contentBean.getReason());
-//        holder.others.setText(contentBean.getAccompanyingPerson());
+        holder.others.setText(contentBean.getAccompanyingPerson());
         if (contentBean.getType() == 0) {
             holder.toWays.setText(R.string.initiative_visit);
         } else if (contentBean.getType() == 1) {
             holder.toWays.setText(R.string.invite_visit);
         }
-        holder.visitTime.setText(splitTime(contentBean.getTime()));
-//        holder.leaveTime.setText(contentBean.getLeaveTime());
+        holder.visitTime.setText(TimeJudge.splitTime(contentBean.getTime()));
+        holder.leaveTime.setText(contentBean.getLeaveTime());
         holder.homeName.setText(contentBean.getReceiverName());
 
     }
