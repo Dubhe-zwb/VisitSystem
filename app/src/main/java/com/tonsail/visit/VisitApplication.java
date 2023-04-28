@@ -7,6 +7,7 @@ import androidx.multidex.MultiDexApplication;
 
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.mmkv.MMKV;
+import com.tonsail.visit.utils.SpUtils;
 
 
 public class VisitApplication extends MultiDexApplication {
@@ -25,6 +26,8 @@ public class VisitApplication extends MultiDexApplication {
         String rootDir = MMKV.initialize(this);
         //启动服务
         Log.e(TAG, "onCreate: "+rootDir);
+        SpUtils.getInstance();
+
         mApp = this;
     }
 

@@ -1251,7 +1251,10 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
         float percentF = (valueF / num) * 100;
         float percentG = (valueG / num) * 100;
 
-        Log.e(TAG, "pieStayTimeData: B " + percentA);
+        Log.e(TAG, "pieStayTimeData456: percentA-->" + percentA+"\n"
+                +"percentB-->"+percentB+"\n"+"percentC-->"+percentC+"\n"
+                +"percentD-->"+percentD+"\n"+"percentE-->"+percentE+"\n"
+                +"percentF-->"+percentF+"\n"+"percentG-->"+percentG+"\n");
 //        int i = percentA % 10;
 //        if (i > 4) percentA = (int)
 //                (valueA / num * 100) + 1;
@@ -1274,8 +1277,8 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
         if (percentG > 0)
             entries.add(new PieEntry(percentG, "6小时以上"));
 
-        Log.e(TAG, "pieStayTimeData: --->");
-        if (percentA == 0 && percentB == 0 && percentC == 0 && percentD == 0 && percentE == 0 && percentF == 0 && percentG == 0) {
+        Log.e(TAG, "pieStayTimeData123: --->"+entries.size());
+        if (entries.size()==0) {
             Log.e(TAG, "pieStayTimeData: --->legend.setEnabled");
             // 禁用图例（图例是标识不同数据集的小方块）
             Legend legend = pieChartManyThree.getLegend();
@@ -1514,6 +1517,7 @@ public class ShowActivity extends AppCompatActivity implements View.OnClickListe
 //                                .data(new Object[]{3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8})
                 })
                 .markerRadius(2f);//圆点大小
+        if (judgeFlag == 0) aaChartChange.dataLabelsEnabled(false);//数据为0不显示数字
         if (judgeFlag == 0) {
             aaChartChange.xAxisVisible(false);
             noDataTwo.setVisibility(View.VISIBLE);
